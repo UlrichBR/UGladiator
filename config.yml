@@ -1,0 +1,779 @@
+#Placeholders with PAPI
+# %uglad_hastag%
+# %uglad_tagformated%
+# %uglad_tagdate%
+Plugin:
+  use-metrics: true
+  check-for-updates: true
+
+Config:
+  tag: '&6&lU&4&lGlad &8>>&e'
+  teleport_delay: 3
+  date-format: 'dd/MM/yyyy HH:mm'
+  enabled_commands_in_event:
+  - '/glad'
+  - '/uglad'
+  - '/clanchat'
+  - '/clan'
+  - '/uclan'
+
+Tags:
+  GLAD: '&4[GLAD]&r'
+  ANOTHER: '&4[ANOTHER]&r'
+
+Effects:
+  sound: # SOUND:VOLUME;ANOTHER_SOUND:VOLUME
+    join: 'ANVIL_USE:10'
+    leave: ''
+    win: ''
+    death: ''
+    start: 'ENDERDRAGON_WINGS:10'
+    end: ''
+    stop: ''
+    inlobby: ''
+  title: # TITLE%nl%SUBTITLE
+    join: '&4TESTE%nl%&4xxx'
+    leave: ''
+    win: ''
+    death: ''
+    start: ''
+    end: ''
+    stop: ''
+    inlobby: ''
+  actionbar:
+    join: '&4TESTE'
+    leave: ''
+    win: ''
+    death: ''
+    start: ''
+    end: ''
+    stop: ''
+    inlobby: ''
+
+ComumItems:
+  cosmetic:
+    material: 'STAINED_GLASS_PANE'
+    data: 7
+    slot: 0
+    amount: 1
+    texture: ''
+    name: ' '
+    flags:
+    - 'HIDE_ENCHANTS'
+    enchants: {}
+    lore: {}
+  wand:
+    permission: 'Ugladiator.admin.wand'
+    permission_message: '%tag% &cYou dont have permission for this.'
+    material: STICK
+    slot: 0
+    amount: 1
+    data: 0
+    name: '&4&lGlad Wand'
+    lore:
+    - ' '
+    - ' &eThis item should be used to mark'
+    - '&eregion points for arenas.'
+    - ' '
+    - ' &bLEFT-CLICK &7to mark point &b#1'
+    - ' &bRIGHT-CLICK &7to mark point &b#2'
+    sound: ''
+    flags:
+    - HIDE_ENCHANTS
+    enchants:
+    - 'PROTECTION_ENVIRONMENTAL;2'
+
+Messages:
+  empty_tag: '&8[!]'
+  pvp_disabled: '%tag% &cPVP is off until the event starts.'
+  command_cannot_be_used: '%tag% &cThis command cannot be used in this event.'
+  need_money: '%tag% &cYou need &a$%money% &cto enter this event'
+  debited_money: '%tag% &a$%money% &ehas been debited from your account to enter the event!'
+  Inventory_isnot_empty: '%tag% &cYour inventory must be empty to enter this event'
+  you_have_no_clan: '%tag% &eTo participate in this event you need a Clan'
+  teleport_dont_move: '%tag% &ePreparing teleport, do not move by %sec% sec.'
+  teleport_moved: '%tag% &cYou moved and the teleport was canceled!!!'
+  teleport_true: '%tag% &eYou were teleported!'
+  cooldown_teleport: '%tag% &cWait %time% sec. to use again.'
+  minimum_online_players: '%tag% &cMinimum online players required to start not reached'
+  no_permission: '%tag% &cYou do not have permission!'
+  reload_config: '%tag% &eReloaded settings.'
+  comand_by_player: '%tag% &cThis command must be performed by a Player'
+  comand_by_console: '%tag% &cThis command must be performed by a Console'
+  received_wand: '%tag% &cYou have received an item &4&lGlad Wand'
+  wand_cleaned: '%tag% &eWand locations have been cleaned.'
+  mark_points: '%tag% &cMark the points with the wand before creating the arena'
+  usage_error: '%tag% &cError, use: &b%usage%'
+  invalid_characters: '%tag% &cThe name contains invalid characters, use only letters and numbers.'
+  arena_exists: '%tag% &cThere is already an arena with this name.'
+  arena_disabled: '%tag% &cThis arena is disabled.'
+  arena_started: '%tag% &cThe arena has already started and you can no longer leave.'
+  arena_does_not_exist: '%tag% &cThere is no saved arena with this name.'
+  arena_already_started: '%tag% &cThere is already an event taking place in the arena &b%arena_name%'
+  arena_not_inlobby: '%tag% &cThere &b%arena_name% &cis not available to enter.'
+  participating_the_event: '%tag% &cYou are participating in the event and cannot attend the box.'
+  already_participating: '%tag% &cYou are already participating in the event.'
+  not_participating: '%tag% &cYou are not participating in any events.'
+  inlobby arena: '%tag% &cYou cannot leave in the middle of the match..'
+  list_empty: ' &8- Nothing to show for now, use: &b/uglad addarena <name>&c.'
+  points_error_list: '%tag% &cUnknown point, use &bLOBBY&c, &bWATCH&c, &bEXIT &cor &bSPAWN'
+  list_points_header: '&b&l%arena_name% &d&larena information:'
+  list_enabled_format: ' &7- Enabled: &b%arena_enabled%'
+  list_status_format: ' &7- Status: &b%arena_state%'
+  list_cuboid_format: ' &7- Cuboid &7- &b%start_loc_cuboid% &7to &b%end_loc_cuboid%'
+  list_points_format: ' &7- %arena_point% &7- &b%arena_point_world%, %arena_point_loc%'
+  reason: #MINPLAYERS, MINCLANS, BYADMIIN, NATURALEND, CHANGETO, INTERNALERROR;
+    MINCLANS: ' &cThe minimum number of clans has not been reached.'
+    MINPLAYERS: ' &cThe minimum number of players has not been reached'
+    BYADMIN: ' &cCanceled by an administrator'
+    NATURALEND: ' &cThe event ended'
+    CHANGETO: ' &cThe state of the event has changed naturally'
+    INTERNALERROR: ' &cAn internal error has occurred.'
+  translate:
+    and: ' &7and&r '
+    comma: '&7,&r '
+    playercolor: '&b'
+    end: '&7.'
+    emptyplayers: '&4!No one.'
+    started: '&6Started'
+    ending: '&cEnding'
+    inlobby: '&eIn Lobby'
+    isnull: '&c!Empty'
+    istrue: '&aYES'
+    isfalse: '&cNO'
+    isenabled: '&aEnabled'
+    isdisabled: '&cDisabled'
+  json:
+    marked_point:
+      raw_text: '%tag% &ePoint &b#%point_number% &ewas scored in &b%location%'
+      hover_text: '&aClick here to clear the marking points'
+      click_type: 'RUN_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+      click_action: '/uglad clearwand'
+      raw_base_color: 'YELLOW'
+    help_uglad_header:
+      raw_text: '&4&lAdmin Gladiator Help:'
+      hover_text: '&aShows help of Gladiator.'
+      click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+      click_action: ''
+      raw_base_color: ''
+    help_glad_header:
+      raw_text: '&5&lGladiator Help:'
+      hover_text: '&aShows help of Gladiator.'
+      click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+      click_action: ''
+      raw_base_color: ''
+    list_uglad_header:
+      raw_text: '&d&lList of arenas:'
+      hover_text: '&aSee the list of arenas below.'
+      click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+      click_action: ''
+      raw_base_color: ''
+    formatted_list_arenas:
+      raw_text: ' &a%num% &7- &a%arena_name% &7- &b%arena_state% &7- &benabled: %arena_enabled%'
+      hover_text: '&7Points: &aSpawn(%arena_spawn%&a) | Exit(%arena_exit%&a) | Lobby(%arena_lobby%&a)'
+      click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+      click_action: ''
+      raw_base_color: ''
+  advanced_json:
+    INLOBBY:
+      lines:
+        space1:
+          raw_text: ' '
+        start:
+          center: true
+          raw_text: '&c&m-&7&m---------------------------------------------&c&m-'
+        name:
+          center: true
+          raw_text: '&4GLADIATOR EVENT &4&lWAITING...'
+          hover_text: '&eThe Gladiator event has started'
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: ''
+        space2:
+          raw_text: ' '
+        3:
+          center: true
+          raw_text: '&7Show your PVP skills against players and win prizes'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: 'YELLOW'
+        space3:
+          raw_text: ' '
+        mode:
+          center: true
+          raw_text: '&ePlayers: &b%arena_players_amount% &eTeams: &b(%arena_clans_amount%) &b%arena_clans_list%'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: ''
+        time:
+          center: true
+          raw_text: '&eTime to enter: &b%arena_timer% sec'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: ''
+        awards:
+          center: true
+          raw_text: ''
+          sublines:
+            1:
+              raw_text: '%desc_rewards_formated%'
+              hover_text: '&a$1,000,000 &eof money for each participant on the winning team'
+              click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+              click_action: ''
+              raw_base_color: ''
+        space4:
+          raw_text: ' '
+        actions:
+          center: true
+          raw_text: '' #EMPTY TO USE SUBLINES
+          sublines:
+            1:
+              raw_text: '&a&l[JOIN EVENT]    '
+              hover_text: '&eClick to enter the event'
+              click_type: 'RUN_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+              click_action: '/glad join %arena_name%'
+              raw_base_color: ''
+            2:
+              raw_text: '&6&l[WATCH EVENT]'
+              hover_text: '&eClick to watch the event'
+              click_type: 'RUN_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+              click_action: '/glad watch %arena_name%'
+              raw_base_color: ''
+            3:
+              raw_text: '    &5&l[?]'
+              hover_text: '&eClick to see help.'
+              click_type: 'RUN_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+              click_action: '/glad help'
+              raw_base_color: ''
+        end:
+          center: true
+          raw_text: '&c&m-&7&m---------------------------------------------&c&m-'
+        spaceX:
+          raw_text: ' '
+    INWAIT:
+      lines:
+        space1:
+          raw_text: ' '
+        start:
+          center: true
+          raw_text: '&c&m-&7&m---------------------------------------------&c&m-'
+        name:
+          center: true
+          raw_text: '&4GLADIATOR EVENT &4&lWAITING'
+          hover_text: '&eThe Gladiator event has canceled'
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: ''
+        space2:
+          raw_text: ' '
+        3:
+          center: true
+          raw_text: '&7The event was closed.'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: 'YELLOW'
+        4:
+          center: true
+          raw_text: '&7The clans have &41 minute &7to group and set up a strategy.'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: 'YELLOW'
+        space4:
+          raw_text: ' '
+        actions:
+          center: true
+          raw_text: '' #EMPTY TO USE SUBLINES
+          sublines:
+            1:
+              raw_text: '&6&l[WATCH EVENT]'
+              hover_text: '&eClick to watch the event'
+              click_type: 'RUN_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+              click_action: '/glad watch %arena_name%'
+              raw_base_color: ''
+        end:
+          center: true
+          raw_text: '&c&m-&7&m---------------------------------------------&c&m-'
+        spaceX:
+          raw_text: ' '
+    STARTED:
+      lines:
+        space1:
+          raw_text: ' '
+        start:
+          center: true
+          raw_text: '&c&m-&7&m---------------------------------------------&c&m-'
+        name:
+          center: true
+          raw_text: '&4GLADIATOR EVENT &4&lSTARTED'
+          hover_text: '&eThe Gladiator event has started'
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: ''
+        space2:
+          raw_text: ' '
+        3:
+          center: true
+          raw_text: '&7The event has started and the &4PVP IS ON'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: 'GREY'
+        4:
+          center: true
+          raw_text: '&7May the best team win!'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: 'GREY'
+        space4:
+          raw_text: ' '
+        actions:
+          center: true
+          raw_text: '' #EMPTY TO USE SUBLINES
+          sublines:
+            1:
+              raw_text: '&6&l[WATCH EVENT]'
+              hover_text: '&eClick to watch the event'
+              click_type: 'RUN_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+              click_action: '/glad watch %arena_name%'
+              raw_base_color: ''
+        end:
+          center: true
+          raw_text: '&c&m-&7&m---------------------------------------------&c&m-'
+        spaceX:
+          raw_text: ' '
+    ENDING:
+      lines:
+        space1:
+          raw_text: ' '
+        start:
+          center: true
+          raw_text: '&c&m-&7&m---------------------------------------------&c&m-'
+        name:
+          center: true
+          raw_text: '&4&lENDED &r&4GLADIATOR EVENT!'
+          hover_text: '&eThe Gladiator event has ended'
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: ''
+        space2:
+          raw_text: ' '
+        3:
+          center: true
+          raw_text: '&7The event ended, the players identified a lot of bravery!'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: 'YELLOW'
+        4:
+          center: true
+          raw_text: '&7The winners have 1 min. to collect the items!'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: 'GREY'
+        space4:
+          raw_text: ' '
+        win:
+          center: true
+          raw_text: '&eWinner team: &6&l%winner_team%'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: ''
+        participants:
+          center: true
+          raw_text: '&eParticipants: &a%winner_players%'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: ''
+        end:
+          center: true
+          raw_text: '&c&m-&7&m---------------------------------------------&c&m-'
+        spaceX:
+          raw_text: ' '
+    CANCELED:
+      lines:
+        space1:
+          raw_text: ' '
+        start:
+          center: true
+          raw_text: '&c&m-&7&m---------------------------------------------&c&m-'
+        name:
+          center: true
+          raw_text: '&4GLADIATOR EVENT &4&lCANCELED'
+          hover_text: '&eThe Gladiator event has canceled'
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: ''
+        space2:
+          raw_text: ' '
+        3:
+          center: true
+          raw_text: '&7The Event has been canceled!'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: 'YELLOW'
+        space4:
+          raw_text: ' '
+        reason:
+          center: true
+          raw_text: '&eReason: &c%event_reason%'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+        end:
+          center: true
+          raw_text: '&c&m-&7&m---------------------------------------------&c&m-'
+        spaceX:
+          raw_text: ' '
+    player_joined: #use lines: {} to disable
+      lines:
+        name:
+          raw_text: '%tag% &a&l[+] &r&ePlayer &a%player% &eof clan &b%clan% &eentered the Gladiator event. &7(Players: &b%arena_players_amount% &7Teams: &b%arena_clans_amount%&7)'
+          hover_text: '&eClick to see player information.'
+          click_type: 'RUN_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: '/clan profile %player%'
+          raw_base_color: 'YELLOW'
+    player_left: #use lines: {} to disable
+      lines:
+        name:
+          raw_text: '%tag% &4&l[-] &r&cPlayer &a%player% &chas left the Gladiator event. &7(Players: &b%arena_players_amount% &7Teams: &b%arena_clans_amount%&7)'
+          hover_text: '&eClick to see player information.'
+          click_type: 'RUN_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: '/clan profile %player%'
+          raw_base_color: 'RED'
+    player_killed: #use lines: {} to disable
+      lines:
+        name:
+          raw_text: '%tag% &4&l[-] &r&ePlayer &4%victim% &ewas killed by &a%attacker% &eand left the event. &7(Players: &b%arena_players_amount% &7Teams: &b%arena_clans_amount%&7)'
+          hover_text: '&eClick to see player information.'
+          click_type: 'RUN_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: '/clan profile %player%'
+          raw_base_color: 'YELLOW'
+    inlobby_wait: #use lines: {} to disable
+      lines:
+        space1:
+          raw_text: ' '
+        name:
+          raw_text: '%tag% &r&eWait, the event will start in &b%arena_timer% sec&e. &7(Players: &b%arena_players_amount% &7Teams: &b%arena_clans_amount%&7)'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: 'YELLOW'
+    collect_items: #use lines: {} to disable
+      lines:
+        space1:
+          raw_text: ' '
+        name:
+          raw_text: '%tag% &r&eCongratulations!! You have 1 minute to collect the items before being teleported out of the event'
+          hover_text: ''
+          click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+          click_action: ''
+          raw_base_color: 'YELLOW'
+Commands:
+  aliases_to_help_commands: true
+  list:
+    glad:
+      separer1:
+        permission: ''
+        no_permission_message: ''
+        alias: ''
+        show:
+          on_help: ' &8Comum commands: &6[?]'
+          on_help_json:
+            hover_text: '&aCommands of administrator.'
+            click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: ''
+          on_success: '%tag% &aYou are seeing the help!'
+          on_error: '%tag%&cError to show text.'
+      help:
+        permission: 'Gladiator.player.help'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'ajuda'
+        show:
+          on_help: ' &b/glad help &7-&e Show help menu.'
+          on_help_json:
+            hover_text: '&aClick to view help of Gladiator.'
+            click_type: 'RUN_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/glad help'
+          on_success: '%tag% &aYou are seeing the help!'
+          on_error: '%tag%&cError to show text.'
+        sound:
+          on_help: ''
+          on_success: ''
+          on_error: ''
+          extra:
+            volume: 10
+            pitch: 1
+        title:
+          on_help: ''
+          on_success: ''
+          on_error: ''
+        actionbar:
+          on_help: ''
+          on_success: ''
+          on_error: ''
+      join:
+        permission: 'Gladiator.player.join'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'join'
+        show:
+          on_help: ' &b/glad join <arena> &7-&e Enter an event.'
+          on_help_json:
+            hover_text: '&aClick to Enter an event.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/glad join <arena>'
+          on_success: '%tag% &aYou have entered the Gladiator event, wait for the start!'
+          on_error: '%tag% &cThere was an error signing in, please try again'
+          on_usage: '%tag% &cError, use &b/glad join <arena>'
+      watch:
+        permission: 'Gladiator.player.watch'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'watch'
+        show:
+          on_help: ' &b/glad watch <arena> &7-&e Watch an event.'
+          on_help_json:
+            hover_text: '&aClick to Watch an event.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/glad watch <arena>'
+          on_success: '%tag% &aYou were teleported to watch the event!'
+          on_error: '%tag% &cAn error has occurred, please try again.'
+          on_usage: '%tag% &cError, use &b/glad watch <arena>'
+      leave:
+        permission: 'Gladiator.player.leave'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'leave'
+        show:
+          on_help: ' &b/glad leave &7-&e Exit an event.'
+          on_help_json:
+            hover_text: '&aClick to Exit an event.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/glad leave'
+          on_success: '%tag% &aYou are seeing the help!'
+          on_error: '%tag%&cError to show text.'
+          on_usage: '%tag% &cError, use &b/glad leave'
+    uglad:
+      separer1:
+        permission: ''
+        no_permission_message: ''
+        alias: ''
+        show:
+          on_help: ' &8Comum commands: &6[?]'
+          on_help_json:
+            hover_text: '&aCommands of administrator.'
+            click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: ''
+          on_success: '%tag% &aYou are seeing the help!'
+          on_error: '%tag%&cError to show text.'
+      help:
+        permission: 'Ugladiator.admin.help'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'ajuda'
+        show:
+          on_help: ' &b/uglad help &7-&e Show help menu.'
+          on_help_json:
+            hover_text: '&aClick to view help of Gladiator.'
+            click_type: 'RUN_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad help'
+          on_success: '%tag% &aYou are seeing the help!'
+          on_error: '%tag%&cError to show text.'
+        sound:
+          on_help: ''
+          on_success: ''
+          on_error: ''
+          extra:
+            volume: 10
+            pitch: 1
+        title:
+          on_help: ''
+          on_success: ''
+          on_error: ''
+        actionbar:
+          on_help: ''
+          on_success: ''
+          on_error: ''
+      reload:
+        permission: 'Ugladiator.admin.reload'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'iniciar'
+        show:
+          on_help: ' &b/uglad reload &7-&e Reload configurations and settings.'
+          on_help_json:
+            hover_text: '&aClick to start Gladiator event.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad reload'
+          on_success: '%tag% &aYou are seeing the help!'
+          on_error: '%tag%&cError to show text.'
+      start:
+        permission: 'Ugladiator.admin.start'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'iniciar'
+        show:
+          on_help: ' &b/uglad start <arena> &7-&e Start Gladiator event.'
+          on_help_json:
+            hover_text: '&aClick to start Gladiator event.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad start <arena> <CLAN|TEAM>'
+          on_success: '%tag% &aYou started the event!'
+          on_error: '%tag% &cAn error occurred while starting the event..'
+          on_usage: '%tag% &cError, use: &b/uglad start <arena>'
+      stop:
+        permission: 'Ugladiator.admin.stop'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'iniciar'
+        show:
+          on_help: ' &b/uglad stop <arena> &7-&e Stop Gladiator event.'
+          on_help_json:
+            hover_text: '&aClick to stop Gladiator event.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad stop <arena>'
+          on_success: '%tag% &aEvent canceled successfully!'
+          on_error: '%tag% &cAn error occurred while finalizing.'
+      status:
+        permission: 'Ugladiator.admin.status'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'status'
+        show:
+          on_help: ' &b/uglad status &7-&e Show status of Gladiator event.'
+          on_help_json:
+            hover_text: '&aClick to show status.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad status'
+          on_success: '%tag% &aYou are seeing the help!'
+          on_error: '%tag%&cError to show text.'
+      wand:
+        permission: 'Ugladiator.admin.wand'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'wand'
+        show:
+          on_help: ' &b/uglad wand &7-&e Receives a wand'
+          on_help_json:
+            hover_text: '&aClick to receives a wand.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad wand'
+          on_success: '%tag% &aYou are seeing the help!'
+          on_error: '%tag%&cError to show text.'
+      clearwand:
+        permission: 'Ugladiator.admin.wand'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'clearwand'
+        show:
+          on_help: ' &b/uglad clearwand &7-&e Clean the wand points'
+          on_help_json:
+            hover_text: '&aClick to clean the wand points.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad clearwand'
+          on_success: '%tag% &aYou are seeing the help!'
+          on_error: '%tag%&cError to show text.'
+      separer2:
+        permission: ''
+        no_permission_message: ''
+        alias: ''
+        show:
+          on_help: ' &8Arena Manager: &6[?].'
+          on_help_json:
+            hover_text: '&aClan manager description.'
+            click_type: '' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: ''
+          on_success: '%tag% &aYou are seeing the help!'
+          on_error: '%tag%&cError to show text.'
+      addarena:
+        permission: 'Ugladiator.admin.addarena'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'addarena'
+        show:
+          raw_base_color: 'YELLOW'
+          on_help: ' &2/uglad addarena <name> &7-&e Add an event arena.'
+          on_help_json:
+            hover_text: '&aClick to sho status.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad addarena <name>'
+          on_success: '%tag% &eNew &b%arena_name% &earena successfully created. Edit the &8arenaconfig.yml &efile and use &8/uglad setpoint %arena_name% <point>&e. Then use &8/uglad toggle %arena_name%'
+          on_error: '%tag% &cThere was an error creating the arena, please try again.'
+      toggle:
+        permission: 'Ugladiator.admin.toggle'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'toggle'
+        show:
+          raw_base_color: 'YELLOW'
+          on_help: ' &2/uglad toggle <arena> &7-&e Turns an arena on and off.'
+          on_help_json:
+            hover_text: '&aClick on/off'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad toggle <arena>'
+          on_success: '%tag% &eThe arena is now %arena_enabled%'
+          on_error: '%tag% &cThe arena cannot be changed, check the points using &b/uglad setpoint %arena_name% <point>'
+      removearena:
+        permission: 'Ugladiator.admin.removearena'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'removearena'
+        show:
+          raw_base_color: 'YELLOW'
+          on_help: ' &2/uglad removearena <name> &7-&e Remove an event arena.'
+          on_help_json:
+            hover_text: '&aClick to remove an arena.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad removearena <name>'
+          on_success: '%tag% &aArena %arena_name% successfully deleted'
+          on_error: '%tag%&cThere was an error deleting the arena.'
+      listarenas:
+        permission: 'Ugladiator.admin.listarenas'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'listarenas'
+        show:
+          raw_base_color: 'YELLOW'
+          on_help: ' &2/uglad listarenas &7-&e Lists saved arenas.'
+          on_help_json:
+            hover_text: '&aClick to show saved arenas.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad listarenas'
+          on_success: '%tag% &aYou are seeing the help!'
+          on_error: '%tag%&cError to list.'
+      setpoint:
+        permission: 'Ugladiator.admin.setpoints'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'setpoint'
+        show:
+          raw_base_color: 'YELLOW'
+          on_help: ' &2/uglad setpoint <arena> <LOBBY|EXIT|SPAWN> &7-&e Set an arena point.'
+          on_help_json:
+            hover_text: '&aClick to set points.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad setpoint <arena> <LOBBY|EXIT|SPAWN>'
+          on_success: '%tag% &b%arena_point% &apoint for &b%arena_name% &amap was successfully saved to &b%arena_point_world%&a, &b%arena_point_loc%'
+          on_error: '%tag% &cAn error occurred while saving point %arena_point%, try again.'
+      saveinv:
+        permission: 'Ugladiator.admin.saveinv'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'saveinv'
+        show:
+          raw_base_color: 'YELLOW'
+          on_help: ' &2/uglad saveinv <arena> &7-&e Shows information about the arena.'
+          on_help_json:
+            hover_text: '&aClick to view information.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad saveinv <arena>'
+          on_success: '%tag% &aThe inventory was successfully saved'
+          on_error: '%tag% &cThere was an error saving your inventory'
+          on_usage: '%tag% &cError, use: &b/uglad saveinv <arena>'
+      info:
+        permission: 'Ugladiator.admin.info'
+        no_permission_message: '%tag% &cYou dont have permission for this.'
+        alias: 'info'
+        show:
+          raw_base_color: 'YELLOW'
+          on_help: ' &2/uglad info <arena> &7-&e Shows information about the arena.'
+          on_help_json:
+            hover_text: '&aClick to view information.'
+            click_type: 'SUGGEST_COMMAND' # SUGGEST_COMMAND, RUN_COMMAND, OPEN_URL
+            click_action: '/uglad info <arena>'
+          on_success: '%tag% &aYou are seeing the help!'
+          on_error: '&c ! There was an error showing arena information.'

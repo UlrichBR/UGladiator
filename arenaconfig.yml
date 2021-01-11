@@ -1,0 +1,41 @@
+Arenas:
+  teste:
+    name: teste
+    price_enter: 0.0
+    mode:
+      type: CLAN
+      inlobby_towait_teleport_tospawn: false
+      min_online_start: 2
+      min_clans_start: 2
+      max_clans: 2
+      min_players_start: 2
+    tasks:
+      check_end:
+        start: 1
+        next: 1
+      pre_lobby:
+        waves: 1
+        start: 30
+        next: 30
+      pre_start:
+        waves: 3
+        start: 1
+        next: 30
+      ending:
+        waves: 1
+        start: 30
+        next: 30
+    rewards:
+      tag:
+        enabled: false
+        format: GLAD
+        toleader: false
+        tomembers: false
+        tolives: false
+      commands:
+        enabled: false
+        toleader: false
+        tomembers: false
+        tolives: false
+        list: &id001 []
+        desc: *id001
